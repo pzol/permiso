@@ -6,6 +6,17 @@ is a lightweight gem for defining and veryfying permissions, or in other words c
 
 Define a class with your abilities, you can name it whatever you want, but Ability is a nice name I borrowed from [cancan](https://github.com/ryanb/cancan).
 
+## Installation
+Choose your weapon, via command line
+
+    gem install permiso
+
+in a `Gemfile`
+
+    gem 'permiso'                                               # latest stable
+    gem 'permiso', :git => 'git://github.com/pzol/permiso.git'  # for the bleeding edge
+
+
 ## Permiso helper methods
 
 * **role**: defines what a named role can do
