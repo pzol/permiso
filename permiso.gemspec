@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Permiso::VERSION
   s.authors     = ["Piotr Zolnierek"]
   s.email       = ["pzolnierek@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/pzol/permiso"
   s.summary     = %q{A lightweight gem for checking permissions}
   s.description = %q{see README.md}
 
