@@ -8,7 +8,7 @@ module Permiso
     end
 
     def rules
-      @ruls ||= {}
+      @rules ||= {}
     end
 
     def can(ability, subject=nil)
