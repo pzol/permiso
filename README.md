@@ -65,6 +65,11 @@ Checking is (almost) the same as in the prior example:
     ability = Ability.new(booking)
     ability.can? :admin, :cancel
 
+Multiple roles are also supported:
+
+    ability = Ability.new(booking)
+    ability.can? [:admin, :user], :cancel
+
 In this case, only the admin can cancel the booking, if the status is book_confirmed.
 
 I use dependency injection, to bring in an object on which I conduct test, in this case the booking.
@@ -75,7 +80,7 @@ For that I define a helper
     MyWebApp.helpers do
       def can(action)
         ability = Ability.new(@booking)
-        ability.can? current_user.role, action
+        ability.can? current_user.roles, action
       end
     end
 
@@ -84,4 +89,8 @@ which then allows me to use this in my `haml` file:
     - if can :cancel
       %a{ :href => '/cancel' }
 
+
+## TODO
+* blocks for #can (defining)
+* role priorities?
 

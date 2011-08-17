@@ -25,8 +25,9 @@ module Permiso
       rules[name] = block
     end
 
-    def can?(role, action, args={})
-      return false unless role_can?(role, action)
+    def can?(user_roles, action, args={})
+      user_roles = [user_roles] unless user_roles.kind_of? Array
+      return false unless user_roles.detect {|r| role_can?(r, action) }
       rule_allows?(action)
     end
 
@@ -42,8 +43,10 @@ module Permiso
     end
 
     def inspect
-      roles.each {|role, abilities| puts "#{role} can #{abilities.inspect}"}
-      rules.each {|rule| puts "rule #{rule}" }
+      out = {}
+      roles.each {|role, abilities| out[:roles] ||= [] << {role => abilities}}
+      rules.keys.each {|rule| out[:rules] ||= [] << rule }
+      out
     end
   end
 end
