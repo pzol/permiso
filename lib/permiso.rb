@@ -27,7 +27,7 @@ module Permiso
 
     def can?(user_roles, action, args={})
       user_roles = [user_roles] unless user_roles.kind_of? Array
-      return false unless user_roles.detect {|r| role_can?(r, action) }
+      return false unless user_roles.detect {|r| role_can?(r.to_sym, action) }
       rule_allows?(action)
     end
 

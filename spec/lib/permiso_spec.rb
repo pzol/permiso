@@ -30,10 +30,14 @@ describe Permiso do
 
   it 'should allow, when role is defined' do
     ability = AbilityTest.new(@booking)
-    p ability
     ability.can?(:admin, :cancel).should be_true
     ability.can?(:admin, :create).should be_true
     ability.can?(:user, :read).should be_true
+  end
+
+  it 'should not make a difference whether role is string or symbol' do
+    ability = AbilityTest.new(@booking)
+    ability.can?('admin', :cancel).should be_true
   end
 
   it 'should allow, when there are multiple roles and at least one is allowed' do
