@@ -5,6 +5,5 @@ gemspec
 
 
 group :test do
-  gem 'spork'
   gem 'rspec'
 end
